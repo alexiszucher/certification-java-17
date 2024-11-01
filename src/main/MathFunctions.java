@@ -1,5 +1,5 @@
-import java.util.*;
-import java.util.stream.Collectors;
+package main;
+
 import java.util.stream.Stream;
 
 
