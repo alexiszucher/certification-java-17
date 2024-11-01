@@ -1,0 +1,31 @@
+Déclare une variable avec une inférence de type.
+Le compilateur déduit le type à la compilation en fonction de la valeur associée.
+
+var nombre = 10;               // Déduit int
+var texte = "Bonjour";          // Déduit String
+var liste = List.of(1, 2, 3);   // Déduit List<Integer>
+
+var valeur; // Erreur : le type ne peut pas être déduit sans assignation initiale
+
+
+Une valeur doit toujours être initialisée dans le cas de var
+
+Var ne peut pas être utilisé en tant qu'attribut de classe, uniquement dans un contexte local
+public class Exemple {
+    private var attribut = 10; // Erreur
+}
+
+
+# POURQUOI UTILISER VAR ?
+
+Utiliser var améliore la lisibilité, surtout si on déclare des types à rallonge tels que des Map :
+Map<String, List<Integer>> mapDesValeurs = new HashMap<>();
+var mapDesValeurs = new HashMap<String, List<Integer>>();
+
+Ou encore dans le parcours d'une map :
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " : " + entry.getValue());
+}
+for (var entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " : " + entry.getValue());
+}

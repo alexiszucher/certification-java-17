@@ -1,0 +1,18 @@
+Utilisation des simples quotes
+ char c = 'a';
+
+
+Utilisation du code numérique du caractère
+ char c = 97;  // le code 97 correspond au caractère a
+
+
+Utilisation de la notation unicode de Java
+(sur 4 digits et en hexadécimal)
+ char c = '\u0061';  // Encore une fois le caractère a
+
+
+Utilisation de caractères spéciaux
+ char c1 = '\n';    // Un retour à la ligne
+ char c2 = '\t';    // Une tabulation
+ char c3 = '\\';    // Tout simplement un \
+ char c4 = '\'';    // Un caractère '

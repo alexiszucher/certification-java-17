@@ -1,0 +1,10 @@
+Stream.generate() permet de créer un flux infini d'éléments
+Nous pouvons mettre une limite pour arrétez la boucle, sinon cela ne s'arrête jamais.
+
+Stream<String> stream = Stream.generate(() -> "Hello").limit(5);
+Cela créer un tableau de 5 Hello
+
+Nous pouvons aussi faire un compteur :
+final int[] compteur = {0};
+Stream<Integer> stream = Stream.generate(() -> compteur[0]++)
+                               .limit(5);

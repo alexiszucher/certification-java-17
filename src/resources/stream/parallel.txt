@@ -1,0 +1,27 @@
+# Quand utiliser parallel() ?
+
+    Si la tâche est lourde ou nécessite beaucoup de calculs, le parallélisme peut être bénéfique.
+    Pour des collections grandes où chaque élément peut être traité indépendamment.
+    Sur des machines multi-cœurs où le parallélisme est géré efficacement par la JVM.
+
+
+# Exemple
+
+    List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+    numbers.stream().parallel()
+           .forEach(System.out::println);
+
+
+    List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    numbers.parallelStream()
+           .map(n -> n * n)  // Exécution de l'opération en parallèle
+           .forEach(System.out::println);
+
+
+# Attention
+    Ordre des éléments : Le parallélisme peut casser l'ordre d'exécution dans certaines opérations comme forEach().
+    Pour garantir l'ordre, utilisez forEachOrdered() avec un flux parallèle.
+
+
+Cette exemple permet de faire les traitements en parallèle et de garantir l'ordre de sortie.
+intList.stream().parallel().forEachOrdered(System.out::println);
