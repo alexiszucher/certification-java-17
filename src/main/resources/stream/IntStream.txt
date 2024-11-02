@@ -1,0 +1,6 @@
+IntStream.range(1, 101) permet de parcourir des nombres de 1 à 100
+
+Il est possible de créer des listes d'entier avec ça :
+
+List<Integer> listeEntierEntre1Et100 = new ArrayList<>();
+IntStream.range(1, 101).parallel().forEachOrdered(listeEntierEntre1Et100::add);

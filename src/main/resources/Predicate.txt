@@ -1,0 +1,1 @@
+Predicate est une interface fonctionnelle prenant un argument en paramètre et renvoyant un résultat de type booléen.
