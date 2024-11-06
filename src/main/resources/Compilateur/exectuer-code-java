@@ -1,0 +1,46 @@
+Créer un classe Zoo.java :
+public class Zoo {
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+}
+
+Les paramètres du main peuvent prendre plusieurs formes :
+String[] args
+String options[]
+String... friends
+
+
+public class Zoo {
+    public static void main(String[] args) {
+        System.out.println(args[0]);
+        System.out.println(args[1]);
+    }
+}
+Cela permet d'afficher les arguments passés au lancement.
+javac Zoo.java
+java Zoo Bronx Zoo => Cela affiche Bronx et Zoo
+
+Il est possible de mettre un argument entre guillemets pour gérer les espaces.
+javac Zoo.java
+java Zoo "San Diego" Zoo
+
+
+
+
+aller en ligne de commande, tapez :
+- javac Zoo.java
+- java Zoo
+
+Javac permet de compiler la classe java en byte code, ce qui va produire un .class dans le même dossier.
+Ensuite, nous pouvons lancer ce fichier .class à l'aide de java Zoo.
+
+
+If you get tired of typing both javac and java every time you want to try a code example,
+there’s a shortcut. You can instead run
+java Zoo.java Bronx Zoo
+There is a key difference here. When compiling first, you omitted the .java extension
+when running java. When skipping the explicit compilation step, you include this
+extension. This feature is called launching single-file source-code programs and is useful for
+testing or for small programs. The name cleverly tells you that it is designed for when your
+program is one file.

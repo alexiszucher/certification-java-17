@@ -1,0 +1,3 @@
+Importer toutes les classes d'un package avec * (import java.util.*) n'alourdira pas l'application
+même si nous n'utilisons qu'une classe. Le compilateur se charge de ne garder que ce que
+nous utilisons.
