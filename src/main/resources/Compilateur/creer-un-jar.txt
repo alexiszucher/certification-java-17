@@ -1,0 +1,3 @@
+Il est possible de créer un jar avec :
+jar -cvf myNewFile.jar .
+jar --create --verbose --file myNewFile.jar .

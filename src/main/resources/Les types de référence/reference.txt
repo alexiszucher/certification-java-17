@@ -1,0 +1,14 @@
+Les primitifs garde leurs valeurs en mémoire où la variable est allouée.
+
+Le type de référence ne garde la valeur de l'objet qu'il rélérence. A la place, il y a un pointeur de référence à un objet en
+stockant l'adresse en mémoire de l'endroit où l'objet est situé.
+
+
+String greeting;
+
+The greeting variable is a reference that can only point to a String object. A value is assigned to a reference in one of two ways:
+■ A reference can be assigned to another object of the same or compatible type.
+■ A reference can be assigned to a new object using the new keyword.
+
+For example, the following statement assigns this reference to a new object:
+greeting = new String("How are you?");

@@ -44,3 +44,10 @@ when running java. When skipping the explicit compilation step, you include this
 extension. This feature is called launching single-file source-code programs and is useful for
 testing or for small programs. The name cleverly tells you that it is designed for when your
 program is one file.
+
+
+Pour dire à java de trouver les classes compilées quelque part, nous pouvons faire l'une de ces trois commandes:
+java -cp classes packageb.ClassB
+java -classpath classes packageb.ClassB
+java --class-path classes packageb.ClassB
+

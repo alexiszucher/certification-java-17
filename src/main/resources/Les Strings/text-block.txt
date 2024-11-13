@@ -1,0 +1,11 @@
+Il est possible de faire soit :
+String eyeTest = "\"Java Study Guide\"\n by Scott & Jeanne";
+
+qui est peu lisible, soit :
+
+String textBlock = """
+    "Java Study Guide"
+        by Scott & Jeanne""";
+
+Les text block doivent avoir un retour à la ligne après les premières """, sinon cela ne compile pas :
+String block = """doe"""; // DOES NOT COMPILE

@@ -1,0 +1,27 @@
+TABLE 1.6 Primitive types
+
+boolean true or false n/a n/a false true
+byte 8-bit integral value -128 127 0 123
+short 16-bit integral value -32,768 32,767 0 123
+int 32-bit integral value -2,147,483,648 2,147,483,647 0 123
+long 64-bit integral value -263 263 – 1 0L 123L
+float 32-bit floating-point value n/a n/a 0.0f 123.45f
+double 64-bit floating-point value n/a n/a 0.0 123.456
+char 16-bit Unicode value 0 65,535 \u0000 'a'
+
+There’s a lot of information in Table 1.6. Let’s look at some key points:
+
+■ The byte, short, int, and long types are used for integer values without decimal points.
+
+■ Each numeric type uses twice as many bits as the smaller similar type. For example, short uses twice as many bits as byte does.
+
+■ All of the numeric types are signed and reserve one of their bits to cover a negative range.
+For example, instead of byte covering 0 to 255 (or even 1 to 256) it actually covers -128 to 127.
+
+■ A float requires the letter f or F following the number so Java knows it is a float.
+Without an f or F, Java interprets a decimal value as a double.
+
+■ A long requires the letter l or L following the number so Java knows it is a long.
+Without an l or L, Java interprets a number without a decimal point as an int in most scenarios.
+
+Unsigned veut dire que c'est strictement positif, signed veut dire que cela peut être negatif

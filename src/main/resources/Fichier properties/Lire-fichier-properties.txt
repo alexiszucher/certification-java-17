@@ -1,0 +1,5 @@
+Locale fr = new Locale("fr");
+var b = ResourceBundle.getBundle("Penguin", fr);
+System.out.println(b.getString("name"));
+
+Un fichier Penguin.properties doit être créé, ou un fichier Pengouin_fr.properties
