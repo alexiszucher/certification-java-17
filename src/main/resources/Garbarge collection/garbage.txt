@@ -1,0 +1,7 @@
+An object is no longer reachable when one of two situations occurs:
+■ The object no longer has any references pointing to it.
+■ All references to the object have gone out of scope.
+
+Le garbage collector est attentif à ce qu'il se passe dans le programme et aux objets non utilisés pour libérer de l'espace.
+Le "heap" est l'espace pour stocker les objets. Tous les objets sont stockés dans la mémoire du programme nommé "heap".
+Le heap est une large piscine pour stocker nos objets du programme Java.

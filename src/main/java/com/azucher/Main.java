@@ -9,5 +9,7 @@ public class Main {
                 "Java Study Guide"
                     by Scott & Jeanne""";
         System.out.println(textBlock);
+        Mouse mouse = new Mouse();
+        mouse.grow(3);
     }
 }

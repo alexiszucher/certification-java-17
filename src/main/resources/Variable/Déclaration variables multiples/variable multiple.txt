@@ -1,0 +1,8 @@
+String s1, s2;
+String s3 = "yes", s4 = "no";
+
+int i1, i2, i3 = 0; // Seulement i3 a pour valeur 0, les autres ne sont pas initialisées
+
+int num, String value; // DOES NOT COMPILE
+double d1, double d2; // Ne compile pas car on ne doit pas répéter le type une deuxième fois
+int i1; int i2; // Compile car on répète le type mais il y a un point virgule entre.

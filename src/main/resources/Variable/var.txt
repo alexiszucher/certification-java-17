@@ -29,3 +29,11 @@ for (Map.Entry<String, Integer> entry : map.entrySet()) {
 for (var entry : map.entrySet()) {
     System.out.println(entry.getKey() + " : " + entry.getValue());
 }
+
+
+8: var number = 7;
+9: number = 4;
+10: number = "five"; // DOES NOT COMPILE
+Ne compile pas car on ne peut pas changer de type en cours de route
+
+var n = null; // DOES NOT COMPILE
