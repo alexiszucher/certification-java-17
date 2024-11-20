@@ -1,0 +1,12 @@
+A statement or block often serves as the target of a decision-making statement. For
+example, we can prepend the decision-making if statement to these two examples:
+
+// Single statement
+if(ticketsTaken > 1)
+patrons++;
+
+// Statement inside a block
+if(ticketsTaken > 1)
+{
+patrons++;
+}

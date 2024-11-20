@@ -1,0 +1,4 @@
+int x;
+System.out.println(x = 5); // Prints 5
+
+L'assignement renvoie la valeur et pas void

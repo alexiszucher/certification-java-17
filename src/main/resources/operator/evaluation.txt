@@ -1,0 +1,9 @@
+&& et || court-circuitent l'évaluation :
+
+Avec &&, si la partie gauche est false, la partie droite n'est pas évaluée, car le résultat sera toujours false.
+Avec ||, si la partie gauche est true, la partie droite n'est pas évaluée, car le résultat sera toujours true.
+
+& et | évaluent toujours les deux opérandes, peu importe leur valeur.
+
+System.out.println(a && (b = false)); // b n'est pas modifié, car a est false.
+System.out.println(a & (b = false));  // b est modifié, car & évalue tout.
