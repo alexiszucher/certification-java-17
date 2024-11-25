@@ -1,0 +1,56 @@
+int[] numbers = new int[3];
+int[] moreNumbers = new int[] {42, 55, 99};
+int[] moreNumbers = {42, 55, 99};
+
+String[] bugs = { "cricket", "beetle", "ladybug" };
+String[] alias = bugs;
+
+System.out.println(bugs.equals(alias)); // true
+System.out.println(bugs.toString()); // [Ljava.lang.String;@160bc7c0
+
+
+================= Asymetric multidimension array =====================
+int[][] differentSizes = {{1, 4}, {3}, {9,8,7}};
+A l'index 0, il y a deux dimension, à l'index 1, 1 dimension et à l'index 2, 3 dimensions
+
+Une autre façon de créer ce genre de tableau :
+int [][] args = new int[4][];
+args[0] = new int[5];
+args[1] = new int[3];
+
+
+
+============= ArrayStoreException ===================================
+3: String[] strings = { "stringValue" };
+4: Object[] objects = strings;
+5: String[] againStrings = (String[]) objects;
+6: againStrings[0] = new StringBuilder(); // DOES NOT COMPILE
+7: objects[0] = new StringBuilder(); // Careful!
+Line 7 is where this gets interesting. From the point of view of the compiler, this is just
+fine. A StringBuilder object can clearly go in an Object[]. The problem is that we don’t
+actually have an Object[]. We have a String[] referred to from an Object[] variable.
+At runtime, the code throws an ArrayStoreException. You don’t need to memorize the
+name of this exception, but you do need to know that the code will throw an exception.
+
+
+==================== Sorting ====================================
+int[] numbers = { 6, 9, 1 };
+Arrays.sort(numbers);
+
+
+String[] strings = { "10", "9", "100" };
+Arrays.sort(strings);
+This code outputs 10 100 9 because 1 is before 9 in alphabetic order
+
+
+=================== SEARCHING =================================
+3: int[] numbers = {2,4,6,8};
+4: System.out.println(Arrays.binarySearch(numbers, 2)); // 0
+5: System.out.println(Arrays.binarySearch(numbers, 4)); // 1
+6: System.out.println(Arrays.binarySearch(numbers, 1)); // -1
+7: System.out.println(Arrays.binarySearch(numbers, 3)); // -2
+8: System.out.println(Arrays.binarySearch(numbers, 9)); // -5
+
+int[] numbers = new int[] {3,2,1};
+6: System.out.println(Arrays.binarySearch(numbers, 2)); // Unpredictable output
+7: System.out.println(Arrays.binarySearch(numbers, 3)); // Unpredictable output

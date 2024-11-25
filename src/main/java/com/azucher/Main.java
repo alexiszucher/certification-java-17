@@ -1,34 +1,21 @@
 package com.azucher;
 
+import java.util.Arrays;
+
 public class Main {
     private transient Integer age;
 
     public static void main(String[] args) {
-        byte apples = 5;
-        short oranges = 10;
-
-        boolean sunny = true, raining = false, sunday = true;
-        boolean goingToTheStore = sunny & raining ^ sunday;
-        boolean goingToTheZoo = sunday && !raining;
-        boolean stayingHome = !(goingToTheStore && goingToTheZoo);
-        System.out.println(goingToTheStore + "-" + goingToTheZoo + "-" + stayingHome);
-
-        int note = 4;
-        int note2 = 4;
-        short melody = (byte) (double) (note *= 2);
-        double song = melody;
-        float symphony = (float) ((song == 1_000f) ? song * 2L : song);
-        int toto = 5;
-        toto = ~toto;
-        System.out.println(toto);
-        if (estPlusHautQue4(toto)) {
-
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
         }
+        String[] bugs = {"cricket", "beetle", "ladybug"};
+        String[] alias = bugs;
 
-
+        show("LALA", "LILI");
     }
 
-    public static boolean estPlusHautQue4(int x) {
-        return x > 4;
+    public static void show(String... toto) {
+        System.out.println(Arrays.toString(toto));
     }
 }
