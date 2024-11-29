@@ -1,4 +1,4 @@
 package com.azucher.aquarium;
 
-public class Water {
+class Water {
 }

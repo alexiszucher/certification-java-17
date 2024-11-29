@@ -1,7 +1,8 @@
 package com.azucher.aquarium;
 
-public class Tank {
+class Tank {
     public void print(Water water) {
+        Water water1 = new Water();
         System.out.println(water);
         int i = 0;
     }

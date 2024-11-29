@@ -6,13 +6,11 @@ public class Main {
     private transient Integer age;
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(i);
-        }
-        String[] bugs = {"cricket", "beetle", "ladybug"};
-        String[] alias = bugs;
-
-        show("LALA", "LILI");
+        String[] s1 = {"Camel", "Peacock", "Llama"};
+        String[] s2 = {"Camel", "Llama", "Peacock"};
+        String[] s3 = {"Camel"};
+        String[] s4 = {"Camel", null};
+        System.out.println(Arrays.compare(s1, s2));
     }
 
     public static void show(String... toto) {

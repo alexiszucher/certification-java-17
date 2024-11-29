@@ -20,3 +20,40 @@ System.out.println(LocalDate.now());
 System.out.println(LocalTime.now());
 System.out.println(LocalDateTime.now());
 System.out.println(ZonedDateTime.now());
+
+
+================== PERIOD ============================
+Period annually = Period.ofYears(1); // every 1 year
+Period quarterly = Period.ofMonths(3); // every 3 months
+Period everyThreeWeeks = Period.ofWeeks(3); // every 3 weeks
+Period everyOtherDay = Period.ofDays(2); // every 2 days
+Period everyYearAndAWeek = Period.of(1, 0, 7); // every year and 7 days
+
+LocalDataTime upTo = LocalDataTime.now().plus(period);
+
+Cela permet de rajouter une période à une date. Cela peut être des années, mois, jour...
+
+
+======================= DURATION =============================
+var daily = Duration.ofDays(1); // PT24H
+var hourly = Duration.ofHours(1); // PT1H
+var everyMinute = Duration.ofMinutes(1); // PT1M
+var everyTenSeconds = Duration.ofSeconds(10); // PT10S
+var everyMilli = Duration.ofMillis(1); // PT0.001S
+var everyNano = Duration.ofNanos(1); // PT0.000000001S
+
+The previous example could be rewritten like this:
+var daily = Duration.of(1, ChronoUnit.DAYS);
+var hourly = Duration.of(1, ChronoUnit.HOURS);
+var everyMinute = Duration.of(1, ChronoUnit.MINUTES);
+var everyTenSeconds = Duration.of(10, ChronoUnit.SECONDS);
+var everyMilli = Duration.of(1, ChronoUnit.MILLIS);
+var everyNano = Duration.of(1, ChronoUnit.NANOS);
+
+
+================ Calculer le temps de traitements de quelque chose ==================
+var now = Instant.now();
+// do something time consuming
+var later = Instant.now();
+var duration = Duration.between(now, later);
+System.out.println(duration.toMillis()); // Returns number milliseconds
