@@ -1,4 +1,7 @@
 package com.azucher.aquarium;
 
-class Water {
+public class Water {
+    static {
+        System.out.println("Water");
+    }
 }

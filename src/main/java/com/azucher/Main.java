@@ -1,17 +1,17 @@
 package com.azucher;
 
-import java.util.Arrays;
+import com.azucher.aquarium.Water;
 
 public class Main {
-    private transient Integer age;
-
-    public static void main(String[] args) {
-        var arr = """
-                purr""";
-        System.out.println(arr.length());
+    static int toto() {
+        return toto() + 1;
     }
 
-    public static void show(String... toto) {
-        System.out.println(Arrays.toString(toto));
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        System.out.println("Hello World!");
+        Water water = new Water();
+        int o = toto();
     }
 }

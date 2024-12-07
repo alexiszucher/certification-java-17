@@ -1,6 +1,6 @@
 package com.azucher.aquarium;
 
-class Tank {
+public class Tank {
     private static final int NUM_SECONDS_PER_MINUTE;
     private static final int NUM_MINUTES_PER_HOUR;
     private static final int NUM_SECONDS_PER_HOUR;
@@ -13,6 +13,16 @@ class Tank {
     static {
         NUM_SECONDS_PER_HOUR
                 = NUM_SECONDS_PER_MINUTE * NUM_MINUTES_PER_HOUR;
+    }
+
+    private int toto = 3;
+
+    public int getToto() {
+        return toto;
+    }
+
+    public void setToto(int toto) {
+        this.toto = toto;
     }
 
     public void print(Water water) {
