@@ -1,6 +1,6 @@
 package com.azucher.aquarium;
 
-public class Water {
+public non-sealed class Water extends Tank {
     static {
         System.out.println("Water");
     }
