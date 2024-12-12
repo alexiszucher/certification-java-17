@@ -31,4 +31,9 @@ public sealed class Tank permits Water {
         int i = 0;
         i = NUM_MINUTES_PER_HOUR;
     }
+
+    class Toto {
+
+    }
 }
+

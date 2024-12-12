@@ -1,7 +1,15 @@
 package com.azucher.aquarium;
 
-public non-sealed class Water extends Tank {
-    static {
-        System.out.println("Water");
+class Water {
+    private int ml;
+
+    public Water() {
+        this(40);
+    }
+
+    public Water(int ml) {
+    }
+
+    void t() {
     }
 }

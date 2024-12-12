@@ -9,7 +9,9 @@ public class Main {
         System.out.println("Hello World!");
         System.out.println("Hello World!");
         System.out.println("Hello World!");
-        Water water = new Water();
+
+
+    Water water = new Water();
         IsSwimable isSwimable = () -> System.out.println("swim");
         isSwimable.swim();
     }
