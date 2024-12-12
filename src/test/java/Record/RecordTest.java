@@ -31,4 +31,14 @@ public class RecordTest {
         FoxRecord fox = new FoxRecord("Un renard", "tout petit");
         Assertions.assertEquals("UN RENARD TOUT PETIT", fox.name());
     }
+
+    @Test
+    void ne_peut_pas_mettre_de_setter_car_les_champs_sont_final() {
+        record ManchotPenguin(int height) {
+            public void setHeight(int height) {
+                // TODO DOES NOT COMPILE
+                // this.height = height;
+            }
+        }
+    }
 }
