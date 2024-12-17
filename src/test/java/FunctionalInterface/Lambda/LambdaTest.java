@@ -61,4 +61,11 @@ public class LambdaTest {
         BooleanSupplier estPlusGrandQue2 = () -> false;
         Assertions.assertFalse(estPlusGrandQue2.getAsBoolean());
     }
+
+    @Test
+    void doit_pouvoir_utiliser_DoubleToIntFunction() {
+        var d = 1.0;
+        DoubleToIntFunction f1 = x -> 1;
+        f1.applyAsInt(d);
+    }
 }
