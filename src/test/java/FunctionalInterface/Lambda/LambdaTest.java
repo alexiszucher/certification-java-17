@@ -3,6 +3,7 @@ package FunctionalInterface.Lambda;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.function.*;
 
 public class LambdaTest {
@@ -67,5 +68,18 @@ public class LambdaTest {
         var d = 1.0;
         DoubleToIntFunction f1 = x -> 1;
         f1.applyAsInt(d);
+    }
+
+    @Test
+    void doit_utiliser_la_function_dans_le_compose_avant() {
+        Function<Integer, Integer> s = a -> a + 4;
+        Function<Integer, Integer> t = a -> a * 3;
+        Function<Integer, Integer> c = s.compose(t);
+        Assertions.assertEquals(7, c.apply(1));
+    }
+
+    @Test
+    void test() {
+        Predicate<Integer> t = (a) -> false;
     }
 }
