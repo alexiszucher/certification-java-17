@@ -1,11 +1,13 @@
 package Collection;
 
+import io.cucumber.java.eo.Se;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class CollectionTest {
     @Test
@@ -234,5 +236,51 @@ public class CollectionTest {
             Assertions.assertEquals(expected.get(i), animal.name());
             i++;
         }
+    }
+
+    @Test
+    void peut_recuperer_les_noms_commencant_par_une_lettre() {
+        List<String> animals = List.of("Tigre", "Singe",  "Lion", "Chat");
+
+        List<String> actual = animals.stream().filter(animal -> animal.startsWith("T")).toList();
+        List<String> expected = List.of("Tigre");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void peut_transformer_une_liste_en_map_en_regroupant_par_le_nombre_de_lettres() {
+        List<String> animals = List.of("Tigre", "Singe",  "Lion", "Chat");
+
+        Map<Integer, List<String>> actual = animals.stream()
+                .collect(Collectors.groupingBy(String::length));
+        Map<Integer, List<String>> expected = Map.of(
+                5, List.of("Tigre", "Singe"),
+                4, List.of("Lion", "Chat")
+        );
+
+        Assertions.assertEquals(expected, actual);
+
+        Map<Integer, Set<String>> actualSet = animals.stream()
+                .collect(Collectors.groupingBy(String::length, Collectors.toSet()));
+        Map<Integer, Set<String>> expectedSet = Map.of(
+                5, Set.of("Tigre", "Singe"),
+                4, Set.of("Lion", "Chat")
+        );
+
+        Assertions.assertEquals(expectedSet, actualSet);
+    }
+
+    @Test
+    void peut_utiliser_le_partitionning_pour_traiter_rapidement_une_liste() {
+        List<String> animals = List.of("Tigre", "Singe", "Lion", "Chat");
+
+        Map<Boolean, List<String>> animauxPlusGrandQue4Caracteres = animals.stream().collect(Collectors.partitioningBy(s -> s.length() > 4));
+        Map<Boolean, List<String>> expected = Map.of(
+                true, List.of("Tigre", "Singe"),
+                false, List.of("Lion", "Chat")
+        );
+
+        Assertions.assertEquals(expected, animauxPlusGrandQue4Caracteres);
     }
 }

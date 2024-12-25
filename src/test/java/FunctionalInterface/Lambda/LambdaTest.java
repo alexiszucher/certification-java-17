@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Spliterator;
 import java.util.function.*;
+import java.util.stream.Stream;
 
 public class LambdaTest {
     @Test
@@ -76,6 +78,25 @@ public class LambdaTest {
         Function<Integer, Integer> t = a -> a * 3;
         Function<Integer, Integer> c = s.compose(t);
         Assertions.assertEquals(7, c.apply(1));
+    }
+
+    @Test
+    void peut_utiliser_Spliterator() {
+        List<String> bonbons = List.of("Caramel", "Tete brulée", "Schtroumpf", "Marshmellow", "Chocolat");
+
+        Spliterator<String> sacOriginal = bonbons.spliterator();
+
+        Spliterator<String> sacDeSandra = sacOriginal.trySplit();
+        Spliterator<String> sacDeBenjamin = sacOriginal;
+
+        sacDeSandra.forEachRemaining(System.out::println);
+        sacDeBenjamin.forEachRemaining(System.out::println);
+    }
+
+    @Test
+    void peut_utiliser_stream_iterate() {
+        Stream result = Stream.iterate("TOOT", n -> n + "TOTO");
+        result.forEach(System.out::println);
     }
 
     @Test
