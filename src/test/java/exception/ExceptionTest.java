@@ -4,10 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.OptionalInt;
-import java.util.function.Function;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.function.Supplier;
 
 public class ExceptionTest {
@@ -82,10 +81,26 @@ public class ExceptionTest {
 
         // TODO avec try with resources avec multiples ressources
         try (FileInputStream file2 = new FileInputStream("file2.txt");
-        FileInputStream file3 = new FileInputStream("file3.txt")) {
+             FileInputStream file3 = new FileInputStream("file3.txt")) {
             // Traitement
         } catch (IOException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    void peut_catcher_plusieurs_exceptions() {
+        try {
+            int i = 1 + 1;
+        } catch (IllegalArgumentException | NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    void peut_avoir_un_try_simple_car_un_finally_se_cache_derriere_la_compilation() throws IOException {
+        try (var writer = Files.newBufferedWriter(Path.of(""))) {
+            int i = 1 + 1;
         }
     }
 }
