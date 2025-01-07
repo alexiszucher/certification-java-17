@@ -103,4 +103,8 @@ public class ExceptionTest {
             int i = 1 + 1;
         }
     }
+
+    public void whatHappensNext() throws IOException {
+
+    }
 }
