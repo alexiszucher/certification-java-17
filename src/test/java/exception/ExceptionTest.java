@@ -7,6 +7,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.function.Supplier;
 
 public class ExceptionTest {
@@ -102,6 +104,13 @@ public class ExceptionTest {
         try (var writer = Files.newBufferedWriter(Path.of(""))) {
             int i = 1 + 1;
         }
+    }
+
+    @Test
+    void souleve_un_RuntimeException_quand_on_parse_pour_une_LocalDate_un_format_ISO_DATE_TIME() {
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            LocalDate localDate = LocalDate.parse("2025-01-08", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        });
     }
 
     public void whatHappensNext() throws IOException {

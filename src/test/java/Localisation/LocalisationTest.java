@@ -47,6 +47,18 @@ public class LocalisationTest {
     }
 
     @Test
+    void un_properties_avec_seulement_la_country_ne_fonctionne_pas() {
+        Locale locale = new Locale.Builder()
+                .setLanguage("en")
+                .setRegion("US")
+                .build();
+        Locale.setDefault(locale);
+        // TODO message_en_US n'existe pas, il cherche donc message_en. message_US n'est pas un nom valide car on ne peut pas mettre juste la country
+        ResourceBundle resourceBundleEn = ResourceBundle.getBundle("message");
+        Assertions.assertEquals("Hello", resourceBundleEn.getString("hello"));
+    }
+
+    @Test
     void peut_se_servir_de_properties() {
         Properties properties = new Properties();
         properties.put("hello", "Hello Alexis");
