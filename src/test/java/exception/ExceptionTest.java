@@ -107,13 +107,19 @@ public class ExceptionTest {
     }
 
     @Test
+    void doit_avoir_throw_en_code_local_et_throws_en_declaration_methode() throws Exception {
+        // TODO throws est sur la déclaration, throw est sur le code local
+        throw new Exception();
+    }
+    @Test
     void souleve_un_RuntimeException_quand_on_parse_pour_une_LocalDate_un_format_ISO_DATE_TIME() {
         Assertions.assertThrows(RuntimeException.class, () -> {
             LocalDate localDate = LocalDate.parse("2025-01-08", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         });
     }
 
-    public void whatHappensNext() throws IOException {
-
+    @Test
+    void tout_ce_qui_herite_de_exception_doit_etre_declare_en_throws_de_la_methode() throws Exception {
+        throw new Exception();
     }
 }
