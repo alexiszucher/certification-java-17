@@ -3,6 +3,8 @@ package thread;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -237,6 +239,74 @@ public class ThreadTest {
         } finally {
             executorService.shutdown();
         }
+    }
+
+    @Test
+    void probleme_thread_nomme_deadlock() {
+        // TODO Ce problème consiste à ce que deux threads s'attendent mutuellement indéfiniment avec synchronized.
+        String toto = "TOTO";
+        String tata = "TATA";
+
+        Runnable afficherTotoEtTata = () -> {
+            // TODO on souhaite que toto soit débloqué pour toute la durée du traitement et on veut aussi que tata soit débloqué à un moment
+            synchronized (toto) {
+                System.out.println(toto);
+
+                synchronized (tata) {
+                    System.out.println(tata);
+                }
+            }
+        };
+        Runnable afficherTataEtToto = () -> {
+            // TODO on souhaite que tata soit débloqué pour toute la durée du traitement et on veut aussi que toto soit débloqué à un moment
+            synchronized (tata) {
+                System.out.println(tata);
+                synchronized (toto) {
+                    System.out.println(toto);
+                }
+            }
+        };
+
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        try {
+            executorService.submit(afficherTataEtToto);
+            executorService.submit(afficherTotoEtTata);
+        } finally {
+            executorService.shutdown();
+        }
+    }
+
+    @Test
+    void probleme_thread_nomme_starvation() {
+        // TODO Ce problème survient quand un thread n'arrive jamais à accéder à la ressource dû aux autres threads prenant systematiquement la place.
+        //   Imaginons un animal voulant utiliser la méthode manger() mais que tous les autres threads n'arrête pas de lock cette méthode pour manger aussi
+        //   L'animal peut mourrir de faim, d'où starvation
+    }
+
+    @Test
+    void probleme_thread_nomme_livelock() {
+        // TODO Lorsque deux threads tentent de liberer les ressources simultanément, mais reste toujours bloqué
+        //  Imagine deux personnes dans un couloir étroit :
+        //   Deadlock : Les deux restent immobiles, chacun bloquant l'autre.
+        //   Livelock : Les deux essaient constamment de bouger pour laisser passer l'autre, mais se retrouvent encore face à face.
+    }
+
+    @Test
+    void peut_utiliser_parallel_en_stream() {
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < 10000000; i++) {
+            numbers.add(i);
+        }
+
+        // TODO Sans thread
+        Instant before = Instant.now();
+        numbers.stream().map(number -> number + 1).toList();
+        System.out.println("DUREE 1 : " + Duration.between(before, Instant.now()).toMillis());
+
+        // TODO Avec thread
+        before = Instant.now();
+        numbers.stream().parallel().map(number -> number + 1).toList();
+        System.out.println("DUREE 2 : " + Duration.between(before, Instant.now()).toMillis());
     }
 
     class Counter {

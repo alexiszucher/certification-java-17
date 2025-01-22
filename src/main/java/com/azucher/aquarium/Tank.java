@@ -15,6 +15,7 @@ public class Tank {
                 = NUM_SECONDS_PER_MINUTE * NUM_MINUTES_PER_HOUR;
     }
 
+    transient String r;
     private int toto = 3;
 
     public int getToto() {
@@ -30,10 +31,11 @@ public class Tank {
         System.out.println(water);
         int i = 0;
         i = NUM_MINUTES_PER_HOUR;
-    }
-
-    class Toto {
-
+        class toto {
+            void print() {
+                System.out.println(NUM_SECONDS_PER_MINUTE);
+            }
+        }
     }
 }
 
