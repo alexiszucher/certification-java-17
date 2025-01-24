@@ -36,4 +36,20 @@ public class ClasseTest {
         Assertions.assertNotEquals(List.of("Dog"), animal.animals());
         Assertions.assertEquals(List.of("Dog", "Cat"), animal.animals());
     }
+
+    @Test
+    void peut_acceder_aux_variables_privees_d_une_sous_classe() {
+        Assertions.assertEquals(2, new OuterClass().new InnerClass().getNum());
+    }
+
+}
+
+class OuterClass {
+    class InnerClass {
+        private int num = 2;
+
+        public int getNum() {
+            return num;
+        }
+    }
 }
