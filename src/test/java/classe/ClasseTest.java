@@ -39,13 +39,18 @@ public class ClasseTest {
 
     @Test
     void peut_acceder_aux_variables_privees_d_une_sous_classe() {
-        Assertions.assertEquals(2, new OuterClass().new InnerClass().getNum());
+        OuterClass.of();
     }
 
 }
 
 class OuterClass {
-    class InnerClass {
+    static OuterClass of() {
+        var t = new OuterClass().new InnerClass().num;
+        return new OuterClass();
+    }
+
+    private class InnerClass {
         private int num = 2;
 
         public int getNum() {
