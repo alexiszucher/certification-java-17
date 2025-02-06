@@ -1,0 +1,19 @@
+package practice.chapter1;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class BooleanTest {
+    @Test
+    void les_operateurs_non_courants_possibles() {
+        // TODO le ^ permet de dire que les deux valeurs sont différentes, si c'est le cas renvoie true
+        Assertions.assertTrue(false ^ true);
+        Assertions.assertTrue(true ^ false);
+        Assertions.assertFalse(false ^ false);
+
+        // TODO le & permet de dire que deux opérandes renvoi true, c'est différent du && car toutes les parties sont exécutées.
+        Assertions.assertTrue(true & true);
+        Assertions.assertFalse(false & true);
+        Assertions.assertFalse(false & true);
+    }
+}

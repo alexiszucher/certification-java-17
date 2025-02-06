@@ -1,4 +1,0 @@
-package Cast;
-
-class Animal {
-}
